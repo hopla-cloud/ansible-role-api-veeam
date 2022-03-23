@@ -2,4 +2,4 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - hoplacloud.veeam-api-create-tenant
+    - hoplacloud.ansible-role-veeam-api-create-customer
