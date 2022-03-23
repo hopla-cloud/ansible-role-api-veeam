@@ -7,8 +7,8 @@
     body_format: form-urlencoded
     body:
       grant_type: password
-      username: {{vcc_username}}
-      password: {{vcc_password}}
+      username: "{{vcc_username}}"
+      password: "{{vcc_password}}"
   register: token
 
 - name: Set token to fact
