@@ -12,5 +12,5 @@
   register: token
 
 - name: Set token to fact
-  set_facts:
+  set_fact:
     accessToken: "Bearer {{token.json.access_token}}"
