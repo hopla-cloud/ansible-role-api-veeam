@@ -1,2 +1,3 @@
 ---
 # defaults file for hoplacloud.ansible-role-veeam-api-create-customer
+url_api: https://veamm-fr-east-1.pub.hopla.cloud/api/v3

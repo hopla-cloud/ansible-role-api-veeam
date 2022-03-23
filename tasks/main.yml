@@ -1,3 +1,16 @@
 ---
 # tasks file for hoplacloud.ansible-role-veeam-api-create-customer
-test2
+- name: Get token
+  uri:
+    url: https://veeam-fr-east-1.pub.hopla.cloud/api/v3/token
+    method: POST
+    body_format: form-urlencoded
+    body:
+      grant_type: password
+      username: {{vcc_username}}
+      password: {{vcc_password}}
+  register: token
+
+- name: Set token to fact
+  set_facts:
+    accessToken: "Bearer {{token.json.access_token}}"
