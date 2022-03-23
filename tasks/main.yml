@@ -1,5 +1,6 @@
 ---
 # tasks file for hoplacloud.ansible-role-veeam-api-create-customer
+collection: ansible.builtin.uri
 - name: Get token
   uri:
     url: https://veeam-fr-east-1.pub.hopla.cloud/api/v3/token
