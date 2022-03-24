@@ -61,3 +61,15 @@
     headers:
       Content-Type: application/json
       Authorization: "{{accessToken}}"
+
+- name: Wait active status for company
+  uri:
+    url: "{{url_api}}/organizations/companies/{{instanceUid}}"
+    method: GET
+    headers:
+      Content-Type: application/json
+      Authorization: "{{accessToken}}"
+  register: status
+  until: status.json.find("Active") != -1
+  retries: 20
+  delay: 10
