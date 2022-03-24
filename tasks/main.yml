@@ -29,7 +29,9 @@
       subscriptionPlanUid: null
       permissions: []
       IsAlarmDetectEnabled: false
-    headers: "{{accessToken}}"
+    headers:
+      Content-Type: application/json
+      Authorization: "{{accessToken}}"
   register: company
 
 - name: Set instaceUid of new company to fact
