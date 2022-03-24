@@ -22,13 +22,13 @@
     body_format: json
     body:
       resellerUid: null
-      organizationInput": {
-        "name": "{{nom_client}}",
-        "email": "{{mail_client}}",
-        "notes": null
+      organizationInput: {
+        name: "{{nom_client}}"
+        email: "{{mail_client}}"
+        notes: null
       }
-      subscriptionPlanUid: null,
-      permissions: [],
+      subscriptionPlanUid: null
+      permissions: []
       IsAlarmDetectEnabled: false
   register: company
 
