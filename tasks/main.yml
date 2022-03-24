@@ -37,3 +37,26 @@
 - name: Set instaceUid of new company to fact
   set_fact:
     instanceUid: "{{company.json.data.instanceUid}}"
+
+- name: Assign company to site and create user
+  uri:
+    url: "{{url_api}}/organizations/companies/{{instanceUid}}/sites"
+    method: POST
+    body_format: json
+    body:
+      siteUid: "{{siteUid}}"
+      cloudTenantType: General
+      leaseExpirationEnabled: false
+      leaseExpirationDate:
+      ownerCredentials:
+        userName: "{{nom_client}}"
+        password: "{{client_password}}"
+      description: Created by API.
+      throttlingEnabled: false
+      maxConcurrentTask: "{{maxConcurrentTask}}"
+      gatewaySelectionType: StandaloneGateways
+      gatewayPoolsUids:
+      isGatewayFailoverEnabled: false
+    headers:
+      Content-Type: application/json
+      Authorization: "{{accessToken}}"

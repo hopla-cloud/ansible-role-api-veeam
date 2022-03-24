@@ -1,3 +1,5 @@
 ---
 # defaults file for hoplacloud.ansible-role-veeam-api-create-customer
 url_api: https://veeam-fr-east-1.pub.hopla.cloud/api/v3
+siteUid: e5f80965-0f4a-4031-ad80-7cbe89029522
+maxConcurrentTask: 2
