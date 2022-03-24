@@ -57,6 +57,7 @@
       gatewaySelectionType: StandaloneGateways
       gatewayPoolsUids:
       isGatewayFailoverEnabled: false
+    status_code: 202
     headers:
       Content-Type: application/json
       Authorization: "{{accessToken}}"
