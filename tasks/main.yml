@@ -2,7 +2,7 @@
 # tasks file for hoplacloud.ansible-role-veeam-api-create-customer
 - name: Get token
   ansible.builtin.uri:
-    url: https://veeam-fr-east-1.pub.hopla.cloud/api/v3/token
+    url: "{{url_api}}"
     method: POST
     body_format: form-urlencoded
     body:
@@ -14,3 +14,24 @@
 - name: Set token to fact
   set_fact:
     accessToken: "Bearer {{token.json.access_token}}"
+
+- name: Create new company
+  uri:
+    url: https://veeam-fr-east-1.pub.hopla.cloud/api/v3/token
+    method: POST
+    body_format: json
+    body:
+      resellerUid: null
+      organizationInput": {
+        "name": "{{nom_client}}",
+        "email": "{{mail_client}}",
+        "notes": null
+      }
+      subscriptionPlanUid: null,
+      permissions: [],
+      IsAlarmDetectEnabled: false
+  register: company
+
+- name: Set instaceUid of new company to fact
+  set_facts:
+    instanceUid: "{{company.json.data.instanceUid}}"
