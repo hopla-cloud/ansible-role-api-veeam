@@ -32,5 +32,5 @@
   register: company
 
 - name: Set instaceUid of new company to fact
-  set_facts:
+  set_fact:
     instanceUid: "{{company.json.data.instanceUid}}"
