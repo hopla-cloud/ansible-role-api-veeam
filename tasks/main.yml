@@ -29,6 +29,7 @@
       subscriptionPlanUid: null
       permissions: []
       IsAlarmDetectEnabled: false
+    headers: "{{accessToken}}"
   register: company
 
 - name: Set instaceUid of new company to fact
