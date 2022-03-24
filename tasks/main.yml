@@ -22,11 +22,10 @@
     body_format: json
     body:
       resellerUid: null
-      organizationInput: {
+      organizationInput:
         name: "{{nom_client}}"
         email: "{{mail_client}}"
         notes: null
-      }
       subscriptionPlanUid: null
       permissions: []
       IsAlarmDetectEnabled: false
