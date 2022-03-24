@@ -2,7 +2,7 @@
 # tasks file for hoplacloud.ansible-role-veeam-api-create-customer
 - name: Get token
   ansible.builtin.uri:
-    url: "{{url_api}}"
+    url: "{{url_api}}/token"
     method: POST
     body_format: form-urlencoded
     body:
@@ -17,7 +17,7 @@
 
 - name: Create new company
   uri:
-    url: https://veeam-fr-east-1.pub.hopla.cloud/api/v3/token
+    url: "{{url_api}}/organizations/companies"
     method: POST
     body_format: json
     body:
