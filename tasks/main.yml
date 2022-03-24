@@ -70,6 +70,6 @@
       Content-Type: application/json
       Authorization: "{{accessToken}}"
   register: status
-  until: status.json.find("Active") != -1
+  until: status.json.data.status == "Active"
   retries: 20
   delay: 10
