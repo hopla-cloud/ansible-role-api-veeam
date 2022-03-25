@@ -83,7 +83,7 @@
       repositoryUid: fa039845-2bba-4ea7-bcfe-a418fc854f33
       cloudRepositoryName: backup-fr-east-1
       storageQuota: "{{quotas}}"
-      serversQuota:
+      serversQuota: "{{max_servers}}"
       isServersQuotaUnlimited: true
       workstationsQuota:
       isWorkstationsQuotaUnlimited: true
