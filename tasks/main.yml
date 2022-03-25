@@ -73,3 +73,26 @@
   until: status.json.data.status == "Active"
   retries: 20
   delay: 10
+
+- name: Enabling backup ressources + set storage quota
+  uri:
+    url: "{{url_api}}/organizations/companies/{{instanceUid}}/sites/{{siteUid}}/BackupResources"
+    method: POST
+    body_format: json
+    body:
+      repositoryUid: fa039845-2bba-4ea7-bcfe-a418fc854f33
+      cloudRepositoryName: backup-fr-east-1
+      storageQuota: "{{quotas}}"
+      serversQuota:
+      isServersQuotaUnlimited: true
+      workstationsQuota:
+      isWorkstationsQuotaUnlimited: true
+      vmsQuota:
+      isVmsQuotaUnlimited: true
+      isWanAccelerationEnabled: false
+      wanAcceleratorUid:
+      isDefault: false
+    status_code: 202
+    headers:
+      Content-Type: application/json
+      Authorization: "{{accessToken}}"
