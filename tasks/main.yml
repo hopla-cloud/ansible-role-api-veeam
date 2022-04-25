@@ -33,6 +33,26 @@
       Content-Type: application/json
       Authorization: "{{accessToken}}"
   register: company
+  when: mail_client is defined
+
+- name: Create new company
+  uri:
+    url: "{{url_api}}/organizations/companies"
+    method: POST
+    body_format: json
+    body:
+      resellerUid: null
+      organizationInput:
+        name: "{{nom_client}}"
+        notes: null
+      subscriptionPlanUid: null
+      permissions: []
+      IsAlarmDetectEnabled: false
+    headers:
+      Content-Type: application/json
+      Authorization: "{{accessToken}}"
+  register: company
+  when: mail_client is not defined
 
 - name: Set instaceUid of new company to fact
   set_fact:
